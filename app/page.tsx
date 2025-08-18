@@ -34,22 +34,29 @@ export default function Portfolio() {
       setScrollY(window.scrollY)
 
       const sections = ["hero", "about", "skills", "projects", "contact"]
-      const scrollPosition = window.scrollY + 100
+      const scrollPosition = window.scrollY + 150 // Increased offset for better detection
 
-      for (const section of sections) {
+      // Find the section that's currently in view
+      let currentSection = "hero"
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i]
         const element = document.getElementById(section)
         if (element) {
           const offsetTop = element.offsetTop
-          const offsetHeight = element.offsetHeight
-
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
+          if (scrollPosition >= offsetTop - 100) {
+            currentSection = section
             break
           }
         }
       }
+
+      setActiveSection(currentSection)
     }
 
+    // Initial call to set correct section
+    handleScroll()
+    
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -429,85 +436,73 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/30">
+      <section id="contact" className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/30">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-serif font-bold text-4xl sm:text-5xl mb-8 animate-fade-in-up">Let's Connect</h2>
+          <h2 className="font-serif font-bold text-4xl sm:text-5xl mb-12 animate-fade-in-up">Let's Connect</h2>
           <p
-            className="text-xl mb-16 max-w-3xl mx-auto leading-relaxed animate-fade-in-up"
+            className="text-xl mb-20 max-w-3xl mx-auto leading-relaxed animate-fade-in-up text-foreground/80"
             style={{ animationDelay: "0.2s" }}
           >
             I'm always interested in collaborating on innovative projects and connecting with fellow developers. Let's
             build something amazing together!
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <Button
               variant="outline"
               size="lg"
-              className="h-20 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent/50 hover:scale-105"
+              className="h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
               style={{ animationDelay: "0.4s" }}
               onClick={() => window.open("https://github.com/AdityaW2005", "_blank")}
             >
-              <img
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
-                alt="GitHub logo"
-                className="w-6 h-6 mr-3 dark:invert opacity-90 hover:opacity-100 transition-opacity"
-              />
-              <span className="font-medium">GitHub</span>
+              <div className="flex flex-col items-center gap-2">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
+                  alt="GitHub logo"
+                  className="w-8 h-8 dark:invert opacity-90 hover:opacity-100 transition-opacity"
+                />
+                <span className="font-medium text-sm">GitHub</span>
+              </div>
             </Button>
 
             <Button
               variant="outline"
               size="lg"
-              className="h-20 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent/50 hover:scale-105"
+              className="h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
               style={{ animationDelay: "0.5s" }}
               onClick={() => window.open("mailto:adhiw2005@gmail.com", "_blank")}
             >
-              <img
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg"
-                alt="Gmail logo"
-                className="w-6 h-6 mr-3 opacity-90 hover:opacity-100 transition-opacity"
-                style={{
-                  filter: "invert(26%) sepia(89%) saturate(1583%) hue-rotate(351deg) brightness(99%) contrast(97%)",
-                }}
-              />
-              <span className="font-medium">Email</span>
+              <div className="flex flex-col items-center gap-2">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg"
+                  alt="Gmail logo"
+                  className="w-8 h-8 opacity-90 hover:opacity-100 transition-opacity"
+                  style={{
+                    filter: "invert(26%) sepia(89%) saturate(1583%) hue-rotate(351deg) brightness(99%) contrast(97%)",
+                  }}
+                />
+                <span className="font-medium text-sm">Email</span>
+              </div>
             </Button>
 
             <Button
               variant="outline"
               size="lg"
-              className="h-20 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent/50 hover:scale-105"
+              className="h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
               style={{ animationDelay: "0.6s" }}
               onClick={() => window.open("https://www.linkedin.com/in/w-aditya-ba5357293/", "_blank")}
             >
-              <img
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg"
-                alt="LinkedIn logo"
-                className="w-6 h-6 mr-3 opacity-90 hover:opacity-100 transition-opacity"
-                style={{
-                  filter: "invert(10%) sepia(100%) saturate(1592%) hue-rotate(202deg) brightness(101%) contrast(101%)",
-                }}
-              />
-              <span className="font-medium">LinkedIn</span>
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              className="h-20 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent/50 hover:scale-105"
-              style={{ animationDelay: "0.7s" }}
-              onClick={() => window.open("https://discord.com/channels/@me", "_blank")}
-            >
-              <img
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg"
-                alt="Discord logo"
-                className="w-6 h-6 mr-3 opacity-90 hover:opacity-100 transition-opacity"
-                style={{
-                  filter: "invert(40%) sepia(98%) saturate(4577%) hue-rotate(231deg) brightness(91%) contrast(87%)",
-                }}
-              />
-              <span className="font-medium">Discord</span>
+              <div className="flex flex-col items-center gap-2">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg"
+                  alt="LinkedIn logo"
+                  className="w-8 h-8 opacity-90 hover:opacity-100 transition-opacity"
+                  style={{
+                    filter: "invert(10%) sepia(100%) saturate(1592%) hue-rotate(202deg) brightness(101%) contrast(101%)",
+                  }}
+                />
+                <span className="font-medium text-sm">LinkedIn</span>
+              </div>
             </Button>
           </div>
         </div>
