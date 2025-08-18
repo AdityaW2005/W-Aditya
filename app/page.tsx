@@ -20,6 +20,25 @@ import {
 } from "lucide-react"
 import { useTheme } from "next-themes"
 
+interface Project {
+  title: string
+  description: string
+  tags: string[]
+  github: string
+  liveUrl?: string
+}
+
+interface SkillItem {
+  name: string
+  logo: string
+}
+
+interface Skill {
+  category: string
+  items: SkillItem[]
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
+}
+
 export default function Portfolio() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
@@ -31,37 +50,41 @@ export default function Portfolio() {
     setMounted(true)
 
     const handleScroll = () => {
-      setScrollY(window.scrollY)
+      try {
+        setScrollY(window.scrollY)
 
-      const sections = ["hero", "about", "skills", "projects", "contact"]
-      const scrollPosition = window.scrollY + 150 // Increased offset for better detection
+        const sections = ["hero", "about", "skills", "projects", "contact"]
+        const scrollPosition = window.scrollY + 150 // Increased offset for better detection
 
-      // Find the section that's currently in view
-      let currentSection = "hero"
-      
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i]
-        const element = document.getElementById(section)
-        if (element) {
-          const offsetTop = element.offsetTop
-          if (scrollPosition >= offsetTop - 100) {
-            currentSection = section
-            break
+        // Find the section that's currently in view
+        let currentSection = "hero"
+        
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i]
+          const element = document.getElementById(section)
+          if (element) {
+            const offsetTop = element.offsetTop
+            if (scrollPosition >= offsetTop - 100) {
+              currentSection = section
+              break
+            }
           }
         }
-      }
 
-      setActiveSection(currentSection)
+        setActiveSection(currentSection)
+      } catch (error) {
+        console.error("Error in scroll handler:", error)
+      }
     }
 
     // Initial call to set correct section
     handleScroll()
     
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const skills = [
+  const skills: Skill[] = [
     {
       category: "Mobile Development",
       items: [
@@ -123,7 +146,7 @@ export default function Portfolio() {
     },
   ]
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: "AWS Exam Prep Website",
       description:
@@ -142,9 +165,21 @@ export default function Portfolio() {
   ]
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+    try {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    } catch (error) {
+      console.error("Error scrolling to section:", error)
+    }
+  }
+
+  const handleExternalLink = (url: string) => {
+    try {
+      window.open(url, "_blank", "noopener,noreferrer")
+    } catch (error) {
+      console.error("Error opening external link:", error)
     }
   }
 
@@ -396,17 +431,17 @@ export default function Portfolio() {
                       <Button
                         variant="ghost"
                         size="icon"
-                        onClick={() => window.open(project.github, "_blank")}
+                        onClick={() => handleExternalLink(project.github)}
                         className="hover:scale-110 rounded-full"
                         title="View Source Code"
                       >
                         <Github className="h-5 w-5" />
                       </Button>
-                      {(project as any).liveUrl && (
+                      {project.liveUrl && (
                         <Button
                           variant="ghost"
                           size="icon"
-                          onClick={() => window.open((project as any).liveUrl, "_blank")}
+                          onClick={() => handleExternalLink(project.liveUrl!)}
                           className="hover:scale-110 rounded-full"
                           title="View Live Site"
                         >
@@ -453,7 +488,7 @@ export default function Portfolio() {
               size="lg"
               className="h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
               style={{ animationDelay: "0.4s" }}
-              onClick={() => window.open("https://github.com/AdityaW2005", "_blank")}
+              onClick={() => handleExternalLink("https://github.com/AdityaW2005")}
             >
               <div className="flex flex-col items-center gap-2">
                 <img
@@ -470,7 +505,7 @@ export default function Portfolio() {
               size="lg"
               className="h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
               style={{ animationDelay: "0.5s" }}
-              onClick={() => window.open("mailto:adhiw2005@gmail.com", "_blank")}
+              onClick={() => handleExternalLink("mailto:adhiw2005@gmail.com")}
             >
               <div className="flex flex-col items-center gap-2">
                 <img
@@ -490,7 +525,7 @@ export default function Portfolio() {
               size="lg"
               className="h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
               style={{ animationDelay: "0.6s" }}
-              onClick={() => window.open("https://www.linkedin.com/in/w-aditya-ba5357293/", "_blank")}
+              onClick={() => handleExternalLink("https://www.linkedin.com/in/w-aditya-ba5357293/")}
             >
               <div className="flex flex-col items-center gap-2">
                 <img
