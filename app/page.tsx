@@ -184,20 +184,34 @@ export default function Portfolio() {
     }
   }
 
-  const handleResumeDownload = () => {
+  const handleResumeDownload = async () => {
     try {
-      // Direct download from Google Drive using the export URL
-      const resumeUrl = "https://docs.google.com/document/d/1ip-QMxin2AjC6ZBiNSnldpUfV2JVrDqmJ_dYF1aGRxs/export?format=pdf"
-      const link = document.createElement('a')
-      link.href = resumeUrl
-      link.download = 'W_Aditya_Resume.pdf'
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
+      // Fetch the latest release from GitHub API
+      const response = await fetch("https://api.github.com/repos/AdityaW2005/AdityaW2005/releases/latest")
+      const releaseData = await response.json()
+      
+      if (releaseData.assets && releaseData.assets.length > 0) {
+        // Find the resume asset (typically a PDF file)
+        const resumeAsset = releaseData.assets.find((asset: any) => 
+          asset.name.toLowerCase().includes('resume') || 
+          asset.name.toLowerCase().includes('cv') ||
+          asset.content_type === 'application/pdf'
+        ) || releaseData.assets[0] // Fallback to first asset if no resume found
+        
+        // Create download link
+        const link = document.createElement('a')
+        link.href = resumeAsset.browser_download_url
+        link.download = resumeAsset.name || 'W_Aditya_Resume.pdf'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      } else {
+        throw new Error('No resume assets found in latest release')
+      }
     } catch (error) {
-      console.error("Error downloading resume:", error)
-      // Fallback: Open in new tab if download fails
-      window.open("https://docs.google.com/document/d/1ip-QMxin2AjC6ZBiNSnldpUfV2JVrDqmJ_dYF1aGRxs/edit", "_blank", "noopener,noreferrer")
+      console.error("Error downloading resume from GitHub:", error)
+      // Fallback: Open the releases page if direct download fails
+      window.open("https://github.com/AdityaW2005/AdityaW2005/releases/latest", "_blank", "noopener,noreferrer")
     }
   }
 
