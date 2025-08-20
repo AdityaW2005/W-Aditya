@@ -1,111 +1,78 @@
 # 👋 Hey there, I'm W Aditya!
 
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=25&duration=4000&pause=1000&center=true&vCenter=true&multiline=true&width=600&height=100&lines=Full+Stack+Developer;Mobile+App+Developer;Passionate+About+Clean+Code;Always+Learning+New+Technologies" alt="Typing SVG" />
+Full Stack Developer & Mobile App Developer. I love crafting beautiful, performant applications while ensuring robust architecture. Currently pursuing Computer Science and constantly learning new technologies.
+
+<div align="left">
+<img height="85" />
+  
+  <img src="https://skillicons.dev/icons?i=flutter" height="42" alt="flutter logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=dart" height="42" alt="dart logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=js" height="42" alt="javascript logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=ts" height="42" alt="typescript logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=react" height="42" alt="react logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=nextjs" height="42" alt="nextjs logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=html" height="42" alt="html logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=css" height="42" alt="css logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=java" height="42" alt="java logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=python" height="42" alt="python logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=c" height="42" alt="C logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=cpp" height="42" alt="CPP logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=git" height="42"   alt="git logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=github" height="42" alt="github logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=vscode" height="42" alt="vscode logo"  />
+  <img width="0" />
+  <img src="https://skillicons.dev/icons?i=vercel" height="42" alt="vercel logo"  />
+  <img width="0" />
 </div>
 
-## 🚀 About Me
-
-I'm a passionate **Full Stack Developer** and **Mobile App Developer** who loves crafting beautiful, performant applications while ensuring robust architecture. Currently pursuing Computer Science and constantly learning new technologies to stay at the forefront of software development.
-
-- 🔭 I'm currently working on **AWS Exam Prep Website** and **Mobile Applications**
-- 🌱 I'm currently learning **Advanced Flutter Development** and **Cloud Technologies**
-- 👯 I'm looking to collaborate on **Open Source Projects** and **Innovative Mobile Apps**
-- 🤔 I'm looking for help with **DevOps** and **System Design**
-- 💬 Ask me about **Flutter, Dart, JavaScript, TypeScript, React, Next.js**
-- 📫 How to reach me: Check out my contact links below!
-- ⚡ Fun fact: I love turning complex problems into simple, elegant solutions
-
-## 🛠️ Tech Stack & Skills
+ <img height="10" />
 
 <div align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=AdityaW2005&show_icons=true&theme=dark&include_all_commits=true&count_private=true"/>
 
-### Mobile Development
+   <img height="10" />
 
-<img src="https://skillicons.dev/icons?i=flutter,dart" />
-
-### Web Technologies
-
-<img src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs" />
-
-### Programming Languages
-
-<img src="https://skillicons.dev/icons?i=java,python,c,cpp" />
-
-### Tools & Technologies
-
-<img src="https://skillicons.dev/icons?i=git,github,vscode,vercel" />
-
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AdityaW2005&layout=compact&langs_count=7&theme=dark"/>
 </div>
 
-## 📊 GitHub Statistics
+ <img height="20" />
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AdityaW2005&layout=compact&langs_count=8&theme=tokyonight"/>
+  <img src="https://github-profile-trophy.vercel.app/?username=AdityaW2005&theme=darkhub&no-frame=true&row=1"/>
 </div>
 
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AdityaW2005&theme=tokyonight" alt="GitHub Streak" />
-</div>
-
-## 🏆 GitHub Trophies
+ <img height="20" />
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=AdityaW2005&theme=tokyonight&no-frame=true&row=1&column=7" alt="GitHub Trophies" />
-</div>
+  
+[![Portfolio](https://img.shields.io/badge/-Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://w-aditya.vercel.app)
+[![Email](https://img.shields.io/badge/-Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:adhiw2005@gmail.com)
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AdityaW2005)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/w-aditya-ba5357293/)
 
-## 🚀 Featured Projects
-
-### 🌐 [AWS Exam Prep Website](https://github.com/AdityaW2005/aws-exam-prep-website)
-
-A comprehensive web application designed to help students prepare for AWS certification exams with interactive flashcards, quiz questions, and issue reporting functionality.
-
-**Tech Stack:** `TypeScript` `Next.js` `React` `CSS`  
-**Live Demo:** [aws-exam-prep.vercel.app](https://aws-exam-prep.vercel.app/)
-
-### 📱 [Tic Tac Toe Mobile App](https://github.com/AdityaW2005/tic-tac-toe-app)
-
-A cross-platform mobile game built with Flutter featuring classic tic-tac-toe gameplay with clean UI design and smooth user interactions.
-
-**Tech Stack:** `Flutter` `Dart` `Mobile Development`
-
-### 💼 [Personal Portfolio Website](https://github.com/AdityaW2005/W-Aditya)
-
-A modern, responsive portfolio website built with Next.js showcasing my projects and skills with a clean, professional design.
-
-**Tech Stack:** `Next.js` `TypeScript` `Tailwind CSS` `React`
-
-## 📈 Contribution Graph
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=AdityaW2005&theme=tokyo-night&hide_border=true" alt="Contribution Graph" />
-</div>
-
-## 🤝 Connect with Me
-
-<div align="center">
-
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://w-aditya.vercel.app)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AdityaW2005)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/w-aditya-ba5357293/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:adhiw2005@gmail.com)
-
-</div>
-
-## 💡 Random Dev Quote
-
-<div align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Random Dev Quote" />
 </div>
 
 ---
 
 <div align="center">
-  
-### 🌟 "Code is like humour. When you have to explain it, it's bad." – Cory House
-
-**Thanks for visiting my profile! Have a great day! 😊**
-
-<img src="https://komarev.com/ghpvc/?username=AdityaW2005&color=blueviolet&style=flat-square&label=Profile+Views" alt="Profile views" />
-
+  <img src="https://komarev.com/ghpvc/?username=AdityaW2005&color=blueviolet&style=flat-square&label=Profile+Views"/>
 </div>
+
+<!---
+AdityaW2005/AdityaW2005 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
