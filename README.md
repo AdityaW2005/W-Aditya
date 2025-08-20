@@ -41,7 +41,6 @@ I'm a passionate **Full Stack Developer** and **Mobile App Developer** who loves
 ## 📊 GitHub Statistics
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=AdityaW2005&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AdityaW2005&layout=compact&langs_count=8&theme=tokyonight"/>
 </div>
 
@@ -99,17 +98,11 @@ A modern, responsive portfolio website built with Next.js showcasing my projects
   <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Random Dev Quote" />
 </div>
 
-## 🐍 Contribution Snake
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/AdityaW2005/AdityaW2005/output/snake.svg" alt="Snake animation" />
-</div>
-
 ---
 
 <div align="center">
   
-### 🌟 "Code is like humor. When you have to explain it, it's bad." – Cory House
+### 🌟 "Code is like humour. When you have to explain it, it's bad." – Cory House
 
 **Thanks for visiting my profile! Have a great day! 😊**
 
