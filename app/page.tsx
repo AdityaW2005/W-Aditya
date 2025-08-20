@@ -198,20 +198,69 @@ export default function Portfolio() {
           asset.content_type === 'application/pdf'
         ) || releaseData.assets[0] // Fallback to first asset if no resume found
         
-        // Create download link
-        const link = document.createElement('a')
-        link.href = resumeAsset.browser_download_url
-        link.download = resumeAsset.name || 'W_Aditya_Resume.pdf'
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
+        // Method 1: Try blob download (prevents browser modifications)
+        try {
+          const fileResponse = await fetch(resumeAsset.browser_download_url, {
+            headers: {
+              'Accept': 'application/pdf',
+              'Cache-Control': 'no-cache'
+            }
+          })
+          const blob = await fileResponse.blob()
+          
+          // Ensure it's treated as PDF
+          const pdfBlob = new Blob([blob], { type: 'application/pdf' })
+          
+          // Create object URL and download
+          const url = window.URL.createObjectURL(pdfBlob)
+          const link = document.createElement('a')
+          link.href = url
+          link.download = resumeAsset.name || 'W_Aditya_Resume.pdf'
+          link.style.display = 'none'
+          link.setAttribute('target', '_blank')
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+          
+          // Clean up the object URL after a short delay
+          setTimeout(() => window.URL.revokeObjectURL(url), 1000)
+          
+        } catch (blobError) {
+          console.log("Blob method failed, trying direct download:", blobError)
+          
+          // Method 2: Direct download via window.location
+          const downloadLink = document.createElement('a')
+          downloadLink.href = resumeAsset.browser_download_url
+          downloadLink.download = resumeAsset.name || 'W_Aditya_Resume.pdf'
+          downloadLink.target = '_blank'
+          downloadLink.style.display = 'none'
+          document.body.appendChild(downloadLink)
+          downloadLink.click()
+          document.body.removeChild(downloadLink)
+        }
+        
       } else {
         throw new Error('No resume assets found in latest release')
       }
     } catch (error) {
       console.error("Error downloading resume from GitHub:", error)
-      // Fallback: Open the releases page if direct download fails
-      window.open("https://github.com/AdityaW2005/AdityaW2005/releases/latest", "_blank", "noopener,noreferrer")
+      
+      // Method 3: Ultimate fallback - direct GitHub download URL
+      try {
+        // Use the known direct URL from the API response we saw
+        const directUrl = "https://github.com/AdityaW2005/AdityaW2005/releases/download/v.1.0.1/W.Aditya.Resume.pdf"
+        const link = document.createElement('a')
+        link.href = directUrl
+        link.download = "W_Aditya_Resume.pdf"
+        link.target = '_blank'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      } catch (finalError) {
+        console.error("All download methods failed:", finalError)
+        // Final fallback: Open the releases page
+        window.open("https://github.com/AdityaW2005/AdityaW2005/releases/latest", "_blank", "noopener,noreferrer")
+      }
     }
   }
 
