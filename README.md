@@ -42,17 +42,23 @@ Full Stack Developer & Mobile App Developer. I love crafting beautiful, performa
  <img height="10" />
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=AdityaW2005&show_icons=true&theme=dark&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=AdityaW2005&show_icons=true&theme=dark&include_all_commits=true&count_private=true&cache_seconds=1800"/>
 
    <img height="10" />
 
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AdityaW2005&layout=compact&langs_count=7&theme=dark"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AdityaW2005&layout=compact&langs_count=7&theme=dark&cache_seconds=1800"/>
+</div>
+
+ <img height="15" />
+
+<div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=AdityaW2005&theme=dark&hide_border=true"/>
 </div>
 
  <img height="20" />
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=AdityaW2005&theme=darkhub&no-frame=true&row=1"/>
+  <img src="https://github-profile-trophy.vercel.app/?username=AdityaW2005&theme=darkhub&no-frame=true&row=1&cache_seconds=1800"/>
 </div>
 
  <img height="20" />
@@ -69,7 +75,7 @@ Full Stack Developer & Mobile App Developer. I love crafting beautiful, performa
 ---
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=AdityaW2005&color=blueviolet&style=flat-square&label=Profile+Views"/>
+  <img src="https://komarev.com/ghpvc/?username=AdityaW2005&color=blueviolet&style=flat-square&label=Profile+Views&cache_seconds=1800"/>
 </div>
 
 <!---
