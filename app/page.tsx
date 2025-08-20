@@ -416,11 +416,8 @@ export default function Portfolio() {
               <Card className="glass hover-lift border-0 shadow-xl bg-background/60 backdrop-blur-sm relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/8 to-primary/8 rounded-lg" />
                 <CardContent className="p-6 sm:p-8 md:p-10 relative z-10">
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
+                  <div className="mb-6 sm:mb-8">
                     <h3 className="font-serif font-semibold text-2xl sm:text-3xl">Full Stack & Mobile Developer</h3>
-                    <div className="p-2 sm:p-3 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 self-start sm:self-center">
-                      <ExternalLink className="h-5 sm:h-7 w-5 sm:w-7" />
-                    </div>
                   </div>
                   <div className="space-y-4 sm:space-y-6 leading-relaxed text-base sm:text-lg">
                     <p>
