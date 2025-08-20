@@ -17,6 +17,7 @@ import {
   Terminal,
   ChevronDown,
   Sparkles,
+  Download,
 } from "lucide-react"
 import { useTheme } from "next-themes"
 
@@ -183,6 +184,23 @@ export default function Portfolio() {
     }
   }
 
+  const handleResumeDownload = () => {
+    try {
+      // Direct download from Google Drive using the export URL
+      const resumeUrl = "https://docs.google.com/document/d/1ip-QMxin2AjC6ZBiNSnldpUfV2JVrDqmJ_dYF1aGRxs/export?format=pdf"
+      const link = document.createElement('a')
+      link.href = resumeUrl
+      link.download = 'W_Aditya_Resume.pdf'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    } catch (error) {
+      console.error("Error downloading resume:", error)
+      // Fallback: Open in new tab if download fails
+      window.open("https://docs.google.com/document/d/1ip-QMxin2AjC6ZBiNSnldpUfV2JVrDqmJ_dYF1aGRxs/edit", "_blank", "noopener,noreferrer")
+    }
+  }
+
   if (!mounted) return null
 
   return (
@@ -266,94 +284,96 @@ export default function Portfolio() {
           />
         </div>
 
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          <div className="mb-12">
-            <h1 className="font-serif font-bold text-7xl sm:text-8xl lg:text-9xl mb-8 animate-fade-in-up bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent leading-tight">
+        <div className="max-w-5xl mx-auto text-center relative z-10 px-4">
+          <div className="mb-8 sm:mb-12">
+            <h1 className="font-serif font-bold text-5xl sm:text-7xl md:text-8xl lg:text-9xl mb-6 sm:mb-8 animate-fade-in-up bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent leading-tight">
               W Aditya
             </h1>
 
-            <div className="text-3xl sm:text-4xl lg:text-5xl mb-12 animate-fade-in-up font-light" style={{ animationDelay: "0.2s" }}>
+            <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-8 sm:mb-12 animate-fade-in-up font-light" style={{ animationDelay: "0.2s" }}>
               <span className="animate-typing text-foreground/90">Computer Science Student</span>
             </div>
 
             <p
-              className="text-xl sm:text-2xl max-w-4xl mx-auto leading-relaxed animate-fade-in-up text-foreground/80 font-light mb-4"
+              className="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed animate-fade-in-up text-foreground/80 font-light mb-4 px-4"
               style={{ animationDelay: "0.4s" }}
             >
-              Passionate about mobile development and collaborative coding. I specialize in Flutter development,
-              algorithmic problem solving, and building innovative trading platforms that bring teams together.
+              Passionate Computer Science student specializing in Full Stack Development and Mobile App Development. 
+              I build innovative applications that bridge web and mobile platforms, combining algorithmic problem 
+              solving with modern user experiences.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-3 mt-8 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
-              <span className="bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium border border-accent/20">
-                App Developer
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-6 sm:mt-8 animate-fade-in-up px-4" style={{ animationDelay: "0.6s" }}>
+              <span className="bg-accent/10 text-accent px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium border border-accent/20">
+                Full Stack Developer
               </span>
-              <span className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium border border-primary/20">
-                Web Developer
+              <span className="bg-accent/10 text-accent px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium border border-accent/20">
+                Mobile App Developer
               </span>
-              <span className="bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium border border-accent/20">
+              <span className="bg-accent/10 text-accent px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium border border-accent/20">
                 Algorithmic Problem Solver
               </span>
             </div>
           </div>
 
           <div
-            className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up mb-12"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center animate-fade-in-up mb-8 sm:mb-12 px-4"
             style={{ animationDelay: "0.9s" }}
           >
             <Button
               size="lg"
-              className="bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent text-white px-8 py-4 text-lg hover-lift transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-accent to-primary hover:from-primary hover:to-accent text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg hover-lift transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto"
               onClick={() => scrollToSection("projects")}
             >
-              <Sparkles className="mr-2 h-5 w-5" />
+              <Sparkles className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
               View My Work
             </Button>
             <Button
-              variant="outline"
               size="lg"
-              className="px-8 py-4 text-lg glass hover-lift transition-all duration-300 bg-background/50 backdrop-blur-sm border-border/50 hover:!text-current"
-              onClick={() => scrollToSection("contact")}
+              className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-teal-600 hover:to-emerald-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg hover-lift transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto"
+              onClick={handleResumeDownload}
             >
-              Get In Touch
+              <Download className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
+              Download Resume
             </Button>
           </div>
 
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ChevronDown className="h-6 w-6" />
+          <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <ChevronDown className="h-5 sm:h-6 w-5 sm:w-6" />
           </div>
         </div>
       </section>
 
-      <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-muted/20 to-background">
+      <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-muted/20 to-background">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif font-bold text-4xl sm:text-5xl text-center mb-16 animate-fade-in-up">About Me</h2>
+          <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl text-center mb-12 sm:mb-16 animate-fade-in-up">About Me</h2>
 
           <div className="flex justify-center">
             <div className="animate-fade-in-up max-w-3xl w-full">
               <Card className="glass hover-lift border-0 shadow-xl bg-background/60 backdrop-blur-sm relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/8 to-primary/8 rounded-lg" />
-                <CardContent className="p-10 relative z-10">
-                  <div className="flex items-center justify-between mb-8">
-                    <h3 className="font-serif font-semibold text-3xl">Computer Science Journey</h3>
-                    <div className="p-3 rounded-full bg-gradient-to-br from-accent/20 to-primary/20">
-                      <ExternalLink className="h-7 w-7" />
+                <CardContent className="p-6 sm:p-8 md:p-10 relative z-10">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
+                    <h3 className="font-serif font-semibold text-2xl sm:text-3xl">Full Stack & Mobile Developer</h3>
+                    <div className="p-2 sm:p-3 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 self-start sm:self-center">
+                      <ExternalLink className="h-5 sm:h-7 w-5 sm:w-7" />
                     </div>
                   </div>
-                  <div className="space-y-6 leading-relaxed text-lg">
+                  <div className="space-y-4 sm:space-y-6 leading-relaxed text-base sm:text-lg">
                     <p>
-                      I'm a dedicated computer science student with a deep passion for mobile app development and
-                      collaborative coding. My expertise lies in Flutter development, where I create cross-platform
-                      applications that deliver exceptional user experiences.
+                      I'm a passionate Computer Science student specializing as a Full Stack Developer and Mobile App Developer. 
+                      My expertise spans across web development with modern frameworks like React and Next.js, and mobile 
+                      development with Flutter, creating seamless cross-platform applications that deliver exceptional user experiences.
                     </p>
                     <p>
-                      I thrive in collaborative environments and have extensive experience building trading platforms
-                      that combine algorithmic problem solving with intuitive user interfaces. My approach to
-                      development emphasizes clean code, efficient algorithms, and seamless team collaboration.
+                      As a full stack developer, I work with both frontend and backend technologies, building complete web 
+                      applications from database design to responsive user interfaces. My mobile development skills in Flutter 
+                      and Dart allow me to create high-performance apps that work flawlessly across iOS and Android platforms.
                     </p>
                     <p>
-                      Always eager to learn new technologies and contribute to innovative projects that push the
-                      boundaries of mobile development and collaborative software engineering.
+                      I thrive in collaborative environments and have experience building trading platforms, AWS certification 
+                      tools, and various mobile applications. My approach emphasizes clean code, efficient algorithms, modern 
+                      design patterns, and delivering solutions that combine technical excellence with intuitive user experiences.
                     </p>
                   </div>
                 </CardContent>
@@ -471,72 +491,72 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="contact" className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/30">
+      <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/30">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-serif font-bold text-4xl sm:text-5xl mb-12 animate-fade-in-up">Let's Connect</h2>
+          <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl mb-8 sm:mb-12 animate-fade-in-up">Let's Connect</h2>
           <p
-            className="text-xl mb-20 max-w-3xl mx-auto leading-relaxed animate-fade-in-up text-foreground/80"
+            className="text-lg sm:text-xl mb-16 sm:mb-20 max-w-3xl mx-auto leading-relaxed animate-fade-in-up text-foreground/80 px-4"
             style={{ animationDelay: "0.2s" }}
           >
             I'm always interested in collaborating on innovative projects and connecting with fellow developers. Let's
             build something amazing together!
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-3xl mx-auto">
             <Button
               variant="outline"
               size="lg"
-              className="h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
+              className="h-20 sm:h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
               style={{ animationDelay: "0.4s" }}
               onClick={() => handleExternalLink("https://github.com/AdityaW2005")}
             >
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-1 sm:gap-2">
                 <img
                   src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
                   alt="GitHub logo"
-                  className="w-8 h-8 dark:invert opacity-90 hover:opacity-100 transition-opacity"
+                  className="w-6 sm:w-8 h-6 sm:h-8 dark:invert opacity-90 hover:opacity-100 transition-opacity"
                 />
-                <span className="font-medium text-sm">GitHub</span>
+                <span className="font-medium text-xs sm:text-sm">GitHub</span>
               </div>
             </Button>
 
             <Button
               variant="outline"
               size="lg"
-              className="h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
+              className="h-20 sm:h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
               style={{ animationDelay: "0.5s" }}
               onClick={() => handleExternalLink("mailto:adhiw2005@gmail.com")}
             >
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-1 sm:gap-2">
                 <img
                   src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg"
                   alt="Gmail logo"
-                  className="w-8 h-8 opacity-90 hover:opacity-100 transition-opacity"
+                  className="w-6 sm:w-8 h-6 sm:h-8 opacity-90 hover:opacity-100 transition-opacity"
                   style={{
                     filter: "invert(26%) sepia(89%) saturate(1583%) hue-rotate(351deg) brightness(99%) contrast(97%)",
                   }}
                 />
-                <span className="font-medium text-sm">Email</span>
+                <span className="font-medium text-xs sm:text-sm">Email</span>
               </div>
             </Button>
 
             <Button
               variant="outline"
               size="lg"
-              className="h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
+              className="h-20 sm:h-24 glass hover-lift transition-all duration-300 hover:bg-accent/10 hover:!text-current animate-fade-in-up bg-background/60 backdrop-blur-sm border-border/50 hover:border-accent hover:scale-105 hover:shadow-lg"
               style={{ animationDelay: "0.6s" }}
               onClick={() => handleExternalLink("https://www.linkedin.com/in/w-aditya-ba5357293/")}
             >
-              <div className="flex flex-col items-center gap-2">
+              <div className="flex flex-col items-center gap-1 sm:gap-2">
                 <img
                   src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg"
                   alt="LinkedIn logo"
-                  className="w-8 h-8 opacity-90 hover:opacity-100 transition-opacity"
+                  className="w-6 sm:w-8 h-6 sm:h-8 opacity-90 hover:opacity-100 transition-opacity"
                   style={{
                     filter: "invert(10%) sepia(100%) saturate(1592%) hue-rotate(202deg) brightness(101%) contrast(101%)",
                   }}
                 />
-                <span className="font-medium text-sm">LinkedIn</span>
+                <span className="font-medium text-xs sm:text-sm">LinkedIn</span>
               </div>
             </Button>
           </div>
