@@ -77,8 +77,3 @@ Full Stack Developer & Mobile App Developer. I love crafting beautiful, performa
 <div align="center">
   <img src="https://komarev.com/ghpvc/?username=AdityaW2005&color=blueviolet&style=flat-square&label=Profile+Views&cache_seconds=1800"/>
 </div>
-
-<!---
-AdityaW2005/AdityaW2005 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
