@@ -22,6 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+*.log
 
 # OS files
 .DS_Store
@@ -47,6 +48,13 @@ next-env.d.ts
 
 # typescript
 *.tsbuildinfo
+next-env.d.ts
 
 # misc
 *.pem
+
+# cache & temp
+.cache/
+.turbo/
+*.local
+
