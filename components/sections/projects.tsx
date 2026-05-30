@@ -24,11 +24,11 @@ const projects: Project[] = [
     span: "md:col-span-2",
   },
   {
-    title: "Tic Tac Toe Mobile App",
+    title: "Raagam Music App",
     description:
-      "A cross-platform mobile game built with Flutter featuring the classic tic-tac-toe gameplay. Demonstrates mobile development skills with clean UI design and smooth user interactions across Android and iOS platforms.",
-    tags: ["Flutter", "Dart", "Mobile Development", "Cross-platform", "Game Development"],
-    github: "https://github.com/AdityaW2005/tic-tac-toe-app",
+      "A Flutter-based music app with authentication and a song upload flow, built with Riverpod state management and REST API integration.",
+    tags: ["Flutter", "Dart", "Riverpod", "REST API", "Mobile Development"],
+    github: "https://github.com/AdityaW2005/raagam-music-app",
     span: "md:col-span-1",
   },
 ]
