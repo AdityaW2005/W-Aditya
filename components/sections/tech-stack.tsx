@@ -117,7 +117,7 @@ export default function TechStackSection() {
             { label: "Mobile Dev", desc: "Flutter · Dart", color: "#00F5FF" },
             { label: "Web Dev", desc: "React · Next.js · TS", color: "#9D00FF" },
             { label: "Languages", desc: "Java · Python · C++", color: "#00F5FF" },
-            { label: "Tools", desc: "Git · VS Code · Docker", color: "#9D00FF" },
+            { label: "Tools", desc: "Git · VS Code · Docker . Postman", color: "#9D00FF" },
           ].map((cat, i) => (
             <motion.div
               key={cat.label}
