@@ -21,7 +21,15 @@ const projects: Project[] = [
     tags: ["TypeScript", "Next.js", "React", "CSS", "Web Development"],
     github: "https://github.com/AdityaW2005/aws-exam-prep-website",
     liveUrl: "https://aws-exam-prep.vercel.app/",
-    span: "md:col-span-2",
+    span: "md:col-span-2 lg:col-span-1",
+  },
+  {
+    title: "Sporto App",
+    description:
+      "A Flutter app that helps people discover sports, find players, book venues, and connect with coaches, blending social play, venue booking, and training with personalized onboarding.",
+    tags: ["Flutter", "Dart", "Riverpod", "Supabase", "SQLite"],
+    github: "https://github.com/AdityaW2005/sporto-app",
+    span: "md:col-span-1",
   },
   {
     title: "Raagam Music App",
@@ -181,7 +189,7 @@ export default function ProjectsSection() {
         </motion.p>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}
