@@ -16,8 +16,8 @@ type GitHubRelease = {
   assets?: GitHubReleaseAsset[]
 }
 
-const GITHUB_RELEASES_URL = "https://api.github.com/repos/AdityaW2005/AdityaW2005/releases?per_page=30"
-const RELEASES_FALLBACK_URL = "https://github.com/AdityaW2005/AdityaW2005/releases"
+const GITHUB_RELEASES_URL = "https://api.github.com/repos/AdityaW2005/W-Aditya/releases?per_page=30"
+const RELEASES_FALLBACK_URL = "https://github.com/AdityaW2005/W-Aditya/releases/latest"
 
 function releaseDate(release: GitHubRelease) {
   return new Date(release.published_at || release.created_at || 0).getTime()
