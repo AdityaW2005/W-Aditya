@@ -55,39 +55,8 @@ export default function HeroSection() {
     if (el) el.scrollIntoView({ behavior: "smooth" })
   }, [])
 
-  const handleResumeDownload = useCallback(async () => {
-    try {
-      const owner = "AdityaW2005"
-      const repo = "AdityaW2005"
-      const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`, {
-        headers: { Accept: "application/vnd.github+json" },
-      })
-
-      if (!response.ok) throw new Error("Failed to load latest release")
-
-      const data = (await response.json()) as {
-        html_url?: string
-        assets?: Array<{ name: string; browser_download_url: string }>
-      }
-
-      const resumeAsset =
-        data.assets?.find((asset) => /resume/i.test(asset.name) && asset.name.toLowerCase().endsWith(".pdf")) ||
-        data.assets?.find((asset) => asset.name.toLowerCase().endsWith(".pdf"))
-
-      if (resumeAsset?.browser_download_url) {
-        window.open(resumeAsset.browser_download_url, "_blank", "noopener,noreferrer")
-        return
-      }
-
-      if (data.html_url) {
-        window.open(data.html_url, "_blank", "noopener,noreferrer")
-        return
-      }
-
-      throw new Error("No downloadable resume found")
-    } catch {
-      window.open("https://github.com/AdityaW2005/AdityaW2005/releases/latest", "_blank", "noopener,noreferrer")
-    }
+  const handleResumeDownload = useCallback(() => {
+    window.open("/resume", "_blank", "noopener,noreferrer")
   }, [])
 
   const letterVariants = {
