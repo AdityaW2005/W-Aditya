@@ -73,7 +73,7 @@ export default function HeroSection() {
     }),
   }
 
-  const name = "W. Aditya"
+  const name = "W Aditya"
 
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
