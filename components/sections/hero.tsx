@@ -58,7 +58,7 @@ export default function HeroSection() {
   const handleResumeDownload = useCallback(async () => {
     try {
       // Always resolve to the asset on the latest release tag
-      const directUrl = "https://github.com/AdityaW2005/AdityaW2005/releases/latest/download/Aditya.Resume.pdf"
+      const directUrl = "https://github.com/AdityaW2005/AdityaW2005/releases/latest/download/W.Aditya.Resume.pdf"
       const link = document.createElement("a")
       link.href = directUrl
       link.download = "W_Aditya_Resume.pdf"
