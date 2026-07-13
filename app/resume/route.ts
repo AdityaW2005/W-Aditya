@@ -5,6 +5,7 @@ export const dynamic = "force-dynamic"
 type GitHubReleaseAsset = {
   name: string
   browser_download_url: string
+  updated_at?: string
 }
 
 type GitHubRelease = {
@@ -13,6 +14,7 @@ type GitHubRelease = {
   prerelease?: boolean
   created_at?: string
   published_at?: string
+  updated_at?: string
   assets?: GitHubReleaseAsset[]
 }
 
@@ -20,7 +22,7 @@ const GITHUB_RELEASES_URL = "https://api.github.com/repos/AdityaW2005/W-Aditya/r
 const RELEASES_FALLBACK_URL = "https://github.com/AdityaW2005/W-Aditya/releases/latest"
 
 function releaseDate(release: GitHubRelease) {
-  return new Date(release.published_at || release.created_at || 0).getTime()
+  return new Date(release.updated_at || release.published_at || release.created_at || 0).getTime()
 }
 
 function findResumeAsset(release: GitHubRelease) {
@@ -30,6 +32,27 @@ function findResumeAsset(release: GitHubRelease) {
     pdfAssets.find((asset) => /\b(resume|cv|aditya)\b/i.test(asset.name)) ??
     pdfAssets[0]
   )
+}
+
+async function downloadResume(asset: GitHubReleaseAsset) {
+  const response = await fetch(asset.browser_download_url, {
+    cache: "no-store",
+    headers: {
+      Accept: "application/pdf,application/octet-stream;q=0.9,*/*;q=0.8",
+    },
+  })
+
+  if (!response.ok || !response.body) {
+    throw new Error("Resume asset download failed")
+  }
+
+  return new NextResponse(response.body, {
+    headers: {
+      "Cache-Control": "no-store, max-age=0",
+      "Content-Disposition": `attachment; filename="${asset.name}"`,
+      "Content-Type": response.headers.get("Content-Type") || "application/pdf",
+    },
+  })
 }
 
 export async function GET() {
@@ -54,11 +77,7 @@ export async function GET() {
       const resumeAsset = findResumeAsset(release)
 
       if (resumeAsset?.browser_download_url) {
-        return NextResponse.redirect(resumeAsset.browser_download_url, {
-          headers: {
-            "Cache-Control": "no-store, max-age=0",
-          },
-        })
+        return downloadResume(resumeAsset)
       }
     }
   } catch {
