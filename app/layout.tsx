@@ -1,14 +1,13 @@
 import type React from "react"
 import type { Metadata } from "next"
-import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "W. Aditya — Full-Stack Developer · Flutter · Chess",
+  title: "W Aditya — Full-Stack Developer · Flutter · Chess",
   description:
-    "Portfolio of W. Aditya — 3rd-year CS undergrad, full-stack developer, Flutter developer, competitive programmer, AWS enthusiast, and chess content creator based in Hyderabad, India.",
+    "Portfolio of W Aditya — 3rd-year CS undergrad, full-stack developer, Flutter developer, competitive programmer, AWS enthusiast, and chess content creator based in Hyderabad, India.",
   keywords: ["W Aditya", "portfolio", "developer", "full stack", "flutter", "chess", "competitive programming"],
   openGraph: {
-    title: "W. Aditya — Full-Stack Developer",
+    title: "W Aditya — Full-Stack Developer",
     description: "I build things that live on the internet. Sometimes they even work.",
     type: "website",
   },
