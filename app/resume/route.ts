@@ -10,6 +10,7 @@ type GitHubReleaseAsset = {
 
 type GitHubRelease = {
   html_url: string
+  body?: string
   draft?: boolean
   prerelease?: boolean
   created_at?: string
@@ -34,8 +35,33 @@ function findResumeAsset(release: GitHubRelease) {
   )
 }
 
-async function downloadResume(asset: GitHubReleaseAsset) {
-  const response = await fetch(asset.browser_download_url, {
+function findResumeUrl(release: GitHubRelease) {
+  const resumeAsset = findResumeAsset(release)
+
+  if (resumeAsset?.browser_download_url) {
+    return {
+      name: resumeAsset.name,
+      url: resumeAsset.browser_download_url,
+    }
+  }
+
+  const pdfLinks = Array.from(release.body?.matchAll(/https:\/\/[^\s)]+\.pdf/gi) ?? [])
+    .map((match) => match[0])
+
+  const resumeUrl =
+    pdfLinks.find((url) => /\b(resume|cv|aditya)\b/i.test(url)) ??
+    pdfLinks[0]
+
+  if (!resumeUrl) return null
+
+  return {
+    name: decodeURIComponent(resumeUrl.split("/").pop() || "W.Aditya.Resume.pdf"),
+    url: resumeUrl,
+  }
+}
+
+async function downloadResume(resume: { name: string; url: string }) {
+  const response = await fetch(resume.url, {
     cache: "no-store",
     headers: {
       Accept: "application/pdf,application/octet-stream;q=0.9,*/*;q=0.8",
@@ -49,7 +75,7 @@ async function downloadResume(asset: GitHubReleaseAsset) {
   return new NextResponse(response.body, {
     headers: {
       "Cache-Control": "no-store, max-age=0",
-      "Content-Disposition": `attachment; filename="${asset.name}"`,
+      "Content-Disposition": `attachment; filename="${resume.name}"`,
       "Content-Type": response.headers.get("Content-Type") || "application/pdf",
     },
   })
@@ -74,10 +100,10 @@ export async function GET() {
       .sort((a, b) => releaseDate(b) - releaseDate(a))
 
     for (const release of releases) {
-      const resumeAsset = findResumeAsset(release)
+      const resume = findResumeUrl(release)
 
-      if (resumeAsset?.browser_download_url) {
-        return downloadResume(resumeAsset)
+      if (resume) {
+        return downloadResume(resume)
       }
     }
   } catch {
